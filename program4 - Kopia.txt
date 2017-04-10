@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+    char *true = "napisy sa identyczne";
+    char *false = "napisy sa rozne";
+
+int *isEqual(char *str1, char *str2)
+{
+    if(str1==str2)
+    {
+        return true;
+    }else
+        return false;
+}
+
+int main()
+{
+    char *zdanie1 = "Ala ma kota";
+    char *zdanie2 = "Ala ma";
+    char *porownanie1, *porownanie2, *porownanie3;
+
+    porownanie1 = isEqual(zdanie1, zdanie1);
+    porownanie2 = isEqual(zdanie2, zdanie1);
+    porownanie3 = isEqual(zdanie1, zdanie2);
+
+    printf("Czy napisy sa identyczne?: [%s] | [%s] : %s\n", zdanie1, zdanie1, porownanie1);
+
+    printf("Czy napisy sa identyczne?: [%s] | [%s] : %s\n", zdanie2, zdanie1, porownanie2);
+
+    printf("Czy napisy sa identyczne?: [%s] | [%s] : %s", zdanie1, zdanie2, porownanie3);
+
+}
