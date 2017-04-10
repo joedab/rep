@@ -1,5 +1,5 @@
-#include <stdio.h> //dodaję inteligentny komentarz w pierwszej linijce !
-
+﻿#include <stdio.h> //dodaję inteligentny komentarz w pierwszej linijce !
+xDDDDD
 int main()
 {
 char znak;
