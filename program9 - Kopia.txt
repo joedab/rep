@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+
+char deleteFirstChar(char** pstr)
+{
+    char usuniety_znak;
+    char *nowa = NULL;
+    int nrozmiar = 0;
+    int i;
+
+    for(i=0; i<=nrozmiar; i++)
+    {
+        if((*pstr)[0+i] != '\0')
+        {
+            nrozmiar++;
+        }else
+            break;
+    }
+
+    nowa = malloc(nrozmiar*sizeof(char));
+
+    if(nowa==NULL)
+    {
+        return NULL;
+    }else
+
+    for(i=0; i<nrozmiar; i++)
+    {
+        nowa[i] = (*pstr)[1+i];
+    }
+    usuniety_znak = (*pstr)[0];
+
+    free(*pstr);
+    *pstr = nowa;
+
+    return usuniety_znak;
+
+}
+
+
+int main()
+{
+    char *ptab;
+    char wynik_funkcji;
+    int rozmiar = 100;
+    char klawisz;
+    int pierwszyraz = 1;
+
+    ptab = malloc(rozmiar*sizeof(char));
+    printf("Dodaj napis do tablicy: ");
+    fgets(ptab, rozmiar, stdin);
+
+    while(klawisz != 27)
+    {
+        wynik_funkcji = deleteFirstChar(&ptab);
+
+        if(wynik_funkcji == NULL)
+        {
+            printf("\nLadowanie do pamieci nie powiodlo sie!\n");
+            printf("Wcisnij [ESC] by opuscic program..");
+            while(klawisz != 27)
+            {
+                klawisz = getch();
+            }
+            break;
+        }else
+            printf("Usunieto znak: %c\nObecny wyglad napisu: %s\n", wynik_funkcji, ptab);
+            printf("Wcisnij [ESC] by opuscic program,\nLub dowolny inny klawisz by usunac kolejny znak.. \n");
+            klawisz = getch();
+    }
+    free(ptab);
+    return 0;
+
+
+}
