@@ -1,0 +1,116 @@
+11#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+int** createMatrix(int n);
+void fillMatrix(int** tab, int n);
+void copyMatrix(int*** pdest, int** src, int n);
+void deleteMatrix(int*** ptab, int n);
+void checkLoad(int **dosprawdzenia); //dodaje sobie funkcje sprawdzania ladowania do pamieci
+
+int main()
+{
+    int w, k, wymiar_n;
+    int **tablica_2d;
+    int **kopia_tablica_2d;
+    int klawisz;
+
+    printf("podaj wymiary macierzy [n x n], n = ");
+    scanf("%i", &wymiar_n);
+
+    tablica_2d = createMatrix(wymiar_n);
+    checkLoad(tablica_2d);
+
+    fillMatrix(tablica_2d, wymiar_n);
+
+    copyMatrix(&kopia_tablica_2d, tablica_2d, wymiar_n);
+    checkLoad(kopia_tablica_2d);
+
+    for(w=0; w<wymiar_n; w++)
+    {
+        printf("\n\n");
+        for(k=0; k<wymiar_n; k++)
+        {
+            fprintf(stderr, "%5i", kopia_tablica_2d[w][k]);
+        }
+    }
+
+    free(tablica_2d);
+    free(kopia_tablica_2d);
+
+
+    return 0;
+}
+//____________________________________CREATE
+int** createMatrix(int n)
+{
+    int w;
+
+    int **tablica = malloc(n*sizeof(int));
+    if(tablica == NULL) return NULL;
+
+    deleteMatrix(&tablica, n);
+
+    for(w=0; w<n; w++)
+    {
+        tablica[w] = malloc(n*sizeof(int));
+        if(tablica[w] == NULL) return NULL;
+    }
+
+    return tablica;
+}
+//__________________________________________FILL
+void fillMatrix(int** tab, int n)
+{
+    int i = 1;
+    int w, k;
+    for(w=0; w<n; w++)
+    {
+        for(k=0; k<n; k++)
+        {
+            tab[w][k] = i;
+            i++;
+        }
+    }
+}
+//______________________________________________COPY
+void copyMatrix(int*** pdest, int** src, int n)
+{
+    int w, k;
+    int **dest;
+
+    dest = createMatrix(n);
+    for(w=0; w<n; w++)
+    {
+        for(k=0; k<n; k++)
+        {
+            dest[w][k] = src[w][k];
+        }
+    }
+    *pdest = dest;
+}
+//_________________________________________________DELETE
+void deleteMatrix(int*** ptab, int n)
+{
+    free(**ptab);
+    ptab = NULL;
+}
+//_______________________________________________________CHECK
+
+//moja funkcja sprawdzajaca, zeby nie pisac dwa razy tego samego w main'ie
+
+//_______
+void checkLoad(int **dosprawdzenia)
+{
+    int klawisz;
+
+    if(dosprawdzenia == NULL)
+    {
+        printf("Ladowanie do pamieci nie powiodlo sie!\nWcisnij [ESC] by zakonczyc dzialanie programu..");
+        while(klawisz != 27)
+        {
+            klawisz = getch();
+            exit(0);
+        }
+    }
+}
