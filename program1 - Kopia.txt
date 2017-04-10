@@ -1,0 +1,40 @@
+<<<<<<< HEAD
+#include <stdio.h>
+no nie bardzo to moje repo :D
+=======
+﻿#include <stdio.h> //dodaję inteligentny komentarz w pierwszej linijce !
+xDDDDD
+>>>>>>> 09e5b6b15f3c3d699c36ad2b7c2d3fa07686930c
+int main()
+{
+char znak;
+double liczba_1, liczba_2, wynik;
+
+    printf("podaj operacje matematyczna oraz liczby na ktorych chcesz ja wykonac: \n");
+    scanf("%c %lf %lf", &znak, &liczba_1, &liczba_2);
+
+    switch(znak)
+    {
+    case '+':
+        wynik = liczba_1 + liczba_2;
+        break;
+
+    case '-':
+        wynik = liczba_1 - liczba_2;
+        break;
+
+    case '*':
+        wynik = liczba_1 * liczba_2;
+        break;
+
+    case '/':
+        wynik = liczba_1 / liczba_2;
+        break;
+
+    default:
+        printf("nie da sie wykonac takiej operacji");
+        break;
+    }
+
+    printf("wynik wynosi: %lf", wynik);
+}
