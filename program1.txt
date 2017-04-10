@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 #include <stdio.h>
 no nie bardzo to moje repo :D
+=======
+﻿#include <stdio.h> //dodaję inteligentny komentarz w pierwszej linijce !
+xDDDDD
+>>>>>>> 09e5b6b15f3c3d699c36ad2b7c2d3fa07686930c
 int main()
 {
 char znak;

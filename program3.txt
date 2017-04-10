@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <math.h>
+<<<<<<< HEAD
 sssssssssssssssssssssssssssssssssssssssss
+=======
+syauguydgas
+>>>>>>> 09e5b6b15f3c3d699c36ad2b7c2d3fa07686930c
 
 int MiejscaZerowe(float a, float b, float c, float *x1, float *x2)
 {

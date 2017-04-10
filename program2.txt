@@ -1,6 +1,10 @@
 #include <stdio.h>
 #define ROZMIAR 30
+<<<<<<< HEAD
 jo³jo³oooooo
+=======
+yzugdyaudgs
+>>>>>>> 09e5b6b15f3c3d699c36ad2b7c2d3fa07686930c
 char *isElement(char tab[], char znak)
 {
     int i;
