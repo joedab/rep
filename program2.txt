@@ -1,0 +1,36 @@
+#include <stdio.h>
+#define ROZMIAR 30
+
+char *isElement(char tab[], char znak)
+{
+    int i;
+
+    for(i=0; tab[i]!='\0'; i++)
+    {
+     if(tab[i]==znak)
+     {
+        return &tab[i];
+     }
+    }
+    return NULL;
+}
+
+int main()
+{
+    char napis[ROZMIAR];
+    char sprawdzanyznak, *wartoscfunkcji;
+
+    printf("dodaj napis: ");
+    fgets(napis, ROZMIAR, stdin);
+    printf("podaj znak, by sprawdzic obecnosc w tekscie: ");
+    scanf("%c", &sprawdzanyznak);
+
+    wartoscfunkcji = isElement(napis, sprawdzanyznak);
+
+    if(wartoscfunkcji==NULL)
+    {
+        printf("nie znaleziono podanego znaku");
+    }else
+        printf("znaleziono znak: %c", *wartoscfunkcji);
+
+}

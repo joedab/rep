@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <math.h>
+
+
+int MiejscaZerowe(float a, float b, float c, float *x1, float *x2)
+{
+    float delta, pierwiastekdelta;
+
+    delta= (b*b) - (4*a*c);
+    pierwiastekdelta = sqrt(delta);
+
+
+    if(delta<0 || a==0)
+    {
+        return 0;
+    }
+    if(delta==0)
+    {
+        *x1 = b / (-2*a);
+        return 1;
+    }
+    if(delta>0)
+    {
+        *x1 = (pierwiastekdelta + b) / ((-2)*a);
+        *x2 = (pierwiastekdelta - b) / (2*a);
+        return 2;
+    }
+
+}
+
+int main()
+{
+    float wspA, wspB, wspC, mzer1, mzer2;
+
+    printf("OBLICZANIE MIEJSC ZEROWYCH FUNKCJI KWADRATOWEJ\n ax^2 + bx + c = 0\n");
+    printf("podaj wspolczynnik a: ");
+    scanf("%f", &wspA);
+    printf("podaj wspolczynnik b: ");
+    scanf("%f", &wspB);
+    printf("podaj wspolczynnik c: ");
+    scanf("%f", &wspC);
+
+    switch(MiejscaZerowe(wspA,wspB,wspC, &mzer1,&mzer2))
+    {
+        case 0: printf("brak miejsc zerowych"); break;
+        case 1: printf("jedno miejsce zerowe w x0 = %.2f", mzer1); break;
+        case 2: printf("dwa miejsca zerowe w x1 = %.2f oraz x2 = %.2f", mzer1, mzer2); break;
+    }
+
+}
