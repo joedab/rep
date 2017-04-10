@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+xDDD
 int main()
 {
 char znak;
