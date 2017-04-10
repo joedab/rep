@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define WYWOLANIA 10
+
+int *add(int *tab, int n, int new_elem)
+{
+    int *nowa = malloc((n+1)*sizeof(int));
+    int i;
+
+    if(nowa==NULL)
+    {
+        return NULL;
+    }
+    else
+        for(i=0; i<n; i++)
+        {
+            nowa[i] = tab[i];
+        }
+    nowa[i] = new_elem;
+
+    free(tab);
+    return nowa;
+
+}
+
+
+int main()
+{
+    int *nowa = NULL;
+    int n, new_elem;
+
+
+    for(n=0; n<WYWOLANIA; n++)
+    {
+        printf("Wprowadz liczbe do tablicy: ");
+        scanf("%d", &new_elem);
+        nowa = add(nowa, n, new_elem);
+        if(nowa==NULL)
+        {
+            printf("ladowanie do pamieci nie powiodlo sie!");
+        }
+    }
+    for(n=0; n<WYWOLANIA; n++)
+    {
+        printf("%3d", nowa[n]);
+    }
+    free(nowa);
+    return 0;
+
+}
+
+ 
