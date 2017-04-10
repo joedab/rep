@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-
+syauguydgas
 
 int MiejscaZerowe(float a, float b, float c, float *x1, float *x2)
 {
