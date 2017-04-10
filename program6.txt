@@ -1,0 +1,40 @@
+#include<stdio.h>
+#define ROZMIAR 30
+
+int Palindrom(char *napis, int dlugosc)
+{
+    if(napis[0]==napis[dlugosc])
+    {
+        if(dlugosc<=1)
+        {
+            return 1;
+        }
+        else if(dlugosc - 2 < 0)
+        {
+            return 0;
+        }
+        else Palindrom(napis+1, dlugosc-2);
+    }
+        else return 0;
+
+}
+
+ 
+
+int main()
+{
+char litery[ROZMIAR];
+int iloscliter;
+
+    printf("podaj tekst, by sprawdzic jego dlugosc i stwierdzic czy jest palindromem:\n");
+    fgets(litery, ROZMIAR, stdin);
+
+    iloscliter=strlen(litery)-1;
+
+    switch(Palindrom(litery, iloscliter-1))
+    {
+        case 0: printf("ma dlugosc %i liter, oraz NIE jest palindromem", iloscliter); break;
+        case 1: printf("ma dlugosc %i liter, oraz jest palindromem", iloscliter); break;
+    }
+    return 0;
+}

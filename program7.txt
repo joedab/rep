@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int *Dtab(int rozmiar)
+{
+    int *wskaznik = malloc(rozmiar*sizeof(int));
+    int i;
+
+    if(wskaznik==NULL)
+    {
+        return NULL;
+    }
+    else
+        for(i=0; i<rozmiar; i++)
+        {
+            wskaznik[i] = (2*i) + 1;
+        }
+    return wskaznik;
+
+}
+
+
+
+int main()
+{
+    int rozmiar;
+    int i;
+
+    printf("podaj rozmiar tablicy: ");
+    scanf("%i", &rozmiar);
+
+    int *tab = Dtab(rozmiar);
+
+    if(tab==NULL)
+    {
+        printf("blad ladowania do pamieci!");
+    }
+    else
+        for(i=0; i<rozmiar; i++)
+        {
+            printf("%3i", tab[i]);
+        }
+
+    free(tab);
+
+
+}

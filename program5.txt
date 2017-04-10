@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+unsigned int Newton(unsigned int n, unsigned int k)
+{
+    if(k == n || k == 0)
+    {
+        return 1;
+    }else if(k < n && n > 0 )
+    {
+        return (Newton(n-1, k-1) + Newton(n-1, k));
+    }
+}
+
+int main()
+{
+    unsigned int n,k;
+
+    printf("Podaj wspolczynniki n oraz k dla symbolu Newtona\nPodaj n: ");
+    scanf("%u", &n);
+    printf("Podaj k: ");
+    scanf("%u", &k);
+    printf("Symbol Newtona n=%u nad k=%u, ma wartosc %u", n, k, Newton(n,k));
+}
