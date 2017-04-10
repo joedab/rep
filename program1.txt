@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+no nie bardzo to moje repo :D
 int main()
 {
 char znak;
