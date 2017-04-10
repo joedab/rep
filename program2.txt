@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define ROZMIAR 30
-
+yzugdyaudgs
 char *isElement(char tab[], char znak)
 {
     int i;
